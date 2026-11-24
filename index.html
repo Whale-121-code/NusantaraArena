@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="theme-color" content="#071a25" />
+<meta name="application-name" content="Nusantara Arena v2" />
+<meta name="color-scheme" content="dark" />
+<link rel="manifest" href="manifest.webmanifest" />
+<title>Nusantara Arena — MOBA Legenda Nusantara</title>
+<meta name="description" content="Nusantara Arena: game MOBA 5v5 bertema mitologi Nusantara. Pilih pahlawan, kuasai jalur, hancurkan Kristal Inti musuh." />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css?v=2.0.0" />
+</head>
+<body>
+<svg class="svg-defs" aria-hidden="true">
+  <defs>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffeeb7"/><stop offset=".45" stop-color="#e8c26a"/><stop offset="1" stop-color="#a97a2c"/>
+    </linearGradient>
+  </defs>
+  <symbol id="i-swords" viewBox="0 0 24 24"><path d="M3 3l6 1 8 8-4 4-8-8-2-5ZM21 3l-6 1-8 8 4 4 8-8 2-5ZM3 21l5-5M21 21l-5-5"/></symbol>
+  <symbol id="i-sword" viewBox="0 0 24 24"><path d="M4 20l4.2-4.2M14.5 3.5L20.5 3.5L20.5 9.5L9 21L3 15L14.5 3.5Z"/><path d="M7 17l-2 2"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.8l7.5 3v6.1c0 4.6-3.1 8-7.5 9.3-4.4-1.3-7.5-4.7-7.5-9.3V5.8l7.5-3Z"/><path d="M12 7v9M8.5 10.5h7"/></symbol>
+  <symbol id="i-bow" viewBox="0 0 24 24"><path d="M5 19c8 0 14-6 14-14M5 19l9-9M14 5l5 5"/><circle cx="19" cy="5" r="1.2"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M3 21L21 3M12 3h9v9M7 7l10 10"/></symbol>
+  <symbol id="i-dagger" viewBox="0 0 24 24"><path d="M5 19l7.5-7.5M12.5 11.5l7-7M19.5 4.5L21 3M11 9l4 4M6 18l-2 2"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8Z"/></symbol>
+  <symbol id="i-heal" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-7.5-10A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 7.5 4c0 5.4-7.5 10-7.5 10Z"/><path d="M12 9v6M9 12h6"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17H6.5A2.5 2.5 0 0 0 4 21.5V4.5Z"/><path d="M4 19a2.5 2.5 0 0 1 2.5-2.5H20M8 6h8M8 10h5"/></symbol>
+  <symbol id="i-staff" viewBox="0 0 24 24"><path d="M6 21L18 6M15 3l6 6M18 3l-3 3 3 3 3-3-3-3Z"/></symbol>
+  <symbol id="i-gem" viewBox="0 0 24 24"><path d="M7 3h10l4 6-9 12L3 9l4-6Z"/><path d="M3 9h18M9 3l3 6 3-6M12 9v12"/></symbol>
+  <symbol id="i-boots" viewBox="0 0 24 24"><path d="M7 3h6v8c0 2 1 3 3 4l4 2v4H4v-4l3-2V3Z"/><path d="M7 7h6"/></symbol>
+  <symbol id="i-belt" viewBox="0 0 24 24"><rect x="2.5" y="9" width="19" height="6" rx="2"/><rect x="10" y="8" width="4" height="8" rx="1"/></symbol>
+  <symbol id="i-cloak" viewBox="0 0 24 24"><path d="M9 3c0 2-4 3-4 8l1 10h12l1-10c0-5-4-6-4-8-2 2-4 2-6 0Z"/><path d="M12 8v13"/></symbol>
+  <symbol id="i-grail" viewBox="0 0 24 24"><path d="M6 3h12v4a6 6 0 0 1-12 0V3ZM12 13v6M8 21h8"/><path d="M9 6h6"/></symbol>
+  <symbol id="i-axe" viewBox="0 0 24 24"><path d="M14 3l7 7-4 4-4-4M3 21L13 11M4 16l4 4"/></symbol>
+  <symbol id="i-blade" viewBox="0 0 24 24"><path d="M3 21c6-1 10-3 13-6s4-7 5-12c-5 1-9 2-12 5S3 15 3 21Z"/><path d="M6 18l6-6"/></symbol>
+  <symbol id="i-katana" viewBox="0 0 24 24"><path d="M3 21l12-12M10 4l10 10M19 3l2 2-3 3-2-2 3-3Z"/></symbol>
+  <symbol id="i-fang" viewBox="0 0 24 24"><path d="M5 3c2 5 5 8 7 18 2-10 5-13 7-18-3 2-4 3-7 3S8 5 5 3Z"/></symbol>
+  <symbol id="i-armor" viewBox="0 0 24 24"><path d="M7 3l5 2 5-2 4 4-3 4v10H6V11L3 7l4-4Z"/><path d="M12 5v16M6 11h12"/></symbol>
+  <symbol id="i-wings" viewBox="0 0 24 24"><path d="M12 4C8 6 3 8 2 14c4 0 6-1 8-3-1 4-2 6-6 8 6 1 9-3 8-15ZM12 4c4 2 9 4 10 10-4 0-6-1-8-3 1 4 2 6 6 8-6 1-9-3-8-15Z"/></symbol>
+  <symbol id="i-dash" viewBox="0 0 24 24"><path d="M3 12h11M10 5l7 7-7 7M17 5l4 7-4 7"/></symbol>
+  <symbol id="i-rain" viewBox="0 0 24 24"><path d="M6 15a4 4 0 0 1 0-8 5 5 0 0 1 9.6-1.4A4 4 0 0 1 19 15H6Z"/><path d="M8 18l-1 3M12 17l-1 4M16 18l-1 3"/></symbol>
+  <symbol id="i-storm" viewBox="0 0 24 24"><path d="M7 14a4 4 0 0 1-.5-8A5.5 5.5 0 0 1 17 5a4 4 0 0 1 1 9H7Z"/><path d="M12 13l-3 5h4l-2 4 6-7h-4l2-2"/></symbol>
+  <symbol id="i-blink" viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-leap" viewBox="0 0 24 24"><path d="M4 19c2-7 6-11 14-12M14 3h8v8"/><path d="M4 15c2-4 4-6 8-7"/></symbol>
+  <symbol id="i-bubble" viewBox="0 0 24 24"><circle cx="9" cy="10" r="5"/><circle cx="17" cy="15" r="4"/><circle cx="7" cy="18" r="2.5"/><path d="M9 7.5a2.5 2.5 0 0 1 2 1.5"/></symbol>
+  <symbol id="i-charge" viewBox="0 0 24 24"><path d="M3 17c3 0 5-3 7-6s4-5 7-5M14 3l7 3-5 6"/><path d="M3 21h11"/></symbol>
+  <symbol id="i-fan" viewBox="0 0 24 24"><path d="M12 21V11M12 11C7 11 4 8 3 3c5 0 8 2 9 8ZM12 11c5 0 8-3 9-8-5 0-8 2-9 8Z"/><circle cx="12" cy="20" r="1.4"/></symbol>
+  <symbol id="i-pulse" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M6 6a8.5 8.5 0 0 0 0 12M18 6a8.5 8.5 0 0 1 0 12M3 3a13 13 0 0 0 0 18M21 3a13 13 0 0 1 0 18"/></symbol>
+  <symbol id="i-roar" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M17 8a6 6 0 0 1 0 8M20 5a10 10 0 0 1 0 14"/></symbol>
+  <symbol id="i-smoke" viewBox="0 0 24 24"><path d="M5 17a4 4 0 0 1-1-7.9A5.5 5.5 0 0 1 14 6a4.5 4.5 0 0 1 6 4.3A3.8 3.8 0 0 1 19 17H5Z"/><path d="M9 21h6M12 19v2"/></symbol>
+  <symbol id="i-stab" viewBox="0 0 24 24"><path d="M3 21l8-8M10 11l9-9M19 2l3 3-9 9M8 10l4 4"/></symbol>
+  <symbol id="i-tide" viewBox="0 0 24 24"><path d="M2 16c3 0 3-3 6-3s3 3 6 3 3-3 6-3M2 10c3 0 3-3 6-3s3 3 6 3 3-3 6-3M2 22c3 0 3-3 6-3s3 3 6 3 3-3 6-3"/></symbol>
+  <symbol id="i-wave" viewBox="0 0 24 24"><path d="M2 15c3 0 3-5 6-5s3 5 6 5 3-5 6-5M6 20c2 0 2-3 4-3s2 3 4 3 2-3 4-3"/></symbol>
+  <symbol id="i-blades" viewBox="0 0 24 24"><path d="M4 20L16 8M3 3l5 1 3 3-4 4-3-3-1-5ZM20 4l-1 5-3 3-4-4 3-3 5-1Z"/></symbol>
+  <symbol id="i-hex" viewBox="0 0 24 24"><path d="M12 2l8.5 5v10L12 22l-8.5-5V7L12 2Z"/><path d="M12 7v10M8 9.5l8 5M16 9.5l-8 5"/></symbol>
+  <symbol id="i-skull" viewBox="0 0 24 24"><path d="M5 11a7 7 0 1 1 14 0v3l-2 2v4h-3v-3h-4v3H7v-4l-2-2v-3Z"/><circle cx="9" cy="10" r="1.4"/><circle cx="15" cy="10" r="1.4"/><path d="M12 14v2"/></symbol>
+  <symbol id="i-giant" viewBox="0 0 24 24"><circle cx="12" cy="6" r="3"/><path d="M6 21v-4a6 6 0 0 1 12 0v4M4 10l-2 6M20 10l2 6"/></symbol>
+  <symbol id="i-crown" viewBox="0 0 24 24"><path d="M3 8l4 4 5-7 5 7 4-4-2 11H5L3 8Z"/><path d="M5 19h14"/></symbol>
+  <symbol id="i-coin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v12M9 9.5c0-1.5 1.4-2.5 3-2.5s3 1 3 2.5-1.4 2-3 2.5-3 1-3 2.5 1.4 2.5 3 2.5 3-1 3-2.5"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 21S3.5 15.7 3.5 9.8A4.8 4.8 0 0 1 12 6a4.8 4.8 0 0 1 8.5 3.8C20.5 15.7 12 21 12 21Z"/></symbol>
+  <symbol id="i-mana" viewBox="0 0 24 24"><path d="M12 2l3 5 5 2-2 5 2 5-5 2-3 3-3-3-5-2 2-5-2-5 5-2 3-5Z"/></symbol>
+  <symbol id="i-time" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-top" viewBox="0 0 24 24"><path d="M6 21V9a6 6 0 0 1 12 0v12M4 21h4M16 21h4M12 3v4"/></symbol>
+  <symbol id="i-mid" viewBox="0 0 24 24"><path d="M4 20L20 4M8 4h12v12"/></symbol>
+  <symbol id="i-bot" viewBox="0 0 24 24"><path d="M6 3v12a6 6 0 0 0 12 0V3M4 3h4M16 3h4M12 21v-4"/></symbol>
+  <symbol id="i-jungle" viewBox="0 0 24 24"><path d="M12 22V9M12 12L6 6M12 15l6-6M12 18l-5-5M12 18l5-5"/><path d="M12 9C9 9 6 6 6 3c3 0 6 2 6 6ZM12 9c3 0 6-3 6-6-3 0-6 2-6 6Z"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="M11 5l-7 7 7 7M4 12h17"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8V4Z"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 10v7M12 7v.5"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M7 4v16M17 4v16"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 9v12h14V9"/></symbol>
+  <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 0 1-8 0V4ZM8 6H4v2a4 4 0 0 0 4 4M16 6h4v2a4 4 0 0 1-4 4M12 13v5M8 21h8"/></symbol>
+</svg>
+
+<div id="app">
+  <!-- ================= MENU ================= -->
+  <section class="screen screen-menu is-active" id="screen-menu">
+    <div class="bg-layer"></div>
+    <div class="bg-embers" id="menu-embers"></div>
+    <div class="menu-vignette"></div>
+    <header class="menu-top">
+      <div class="brand-mini">
+        <span class="brand-sigil">✦</span>
+        <span>NUSANTARA ARENA</span>
+      </div>
+      <div class="menu-top-actions">
+        <button class="ghost-btn" id="btn-menu-help"><svg><use href="#i-info"/></svg><span>Cara Bermain</span></button>
+        <button class="ghost-btn" id="btn-menu-settings"><svg><use href="#i-pause"/></svg><span>Pengaturan</span></button>
+      </div>
+    </header>
+    <div class="menu-hero">
+      <div class="menu-copy">
+        <div class="eyebrow"><span></span> MOBA 5v5 · MITOLOGI NUSANTARA <span></span></div>
+        <h1 class="game-title"><span class="title-small">NUSANTARA</span><span class="title-big">ARENA</span></h1>
+        <p class="tagline">Panggil legenda. Kuasai tiga jalur. Hancurkan Kristal Inti.</p>
+        <div class="menu-modes" role="group" aria-label="Pilih kesulitan">
+          <button class="mode-chip" data-diff="easy"><b>Mudah</b><small>Santai &amp; belajar</small></button>
+          <button class="mode-chip is-active" data-diff="normal"><b>Normal</b><small>Pertarungan seimbang</small></button>
+          <button class="mode-chip" data-diff="hard"><b>Sulit</b><small>Bot tanpa ampun</small></button>
+        </div>
+        <div class="menu-cta">
+          <button class="primary-btn xl" id="btn-play">
+            <span class="btn-glow"></span>
+            <svg><use href="#i-play"/></svg>
+            <span>MULAI BERTARUNG</span>
+          </button>
+          <div class="menu-meta">
+            <div><b id="menu-mode-label">Normal</b><small>Mode</small></div>
+            <div><b>5 vs 5</b><small>Formasi</small></div>
+            <div><b>3 Jalur</b><small>Peta</small></div>
+          </div>
+        </div>
+        <div class="menu-tip"><svg><use href="#i-info"/></svg><span id="menu-tip-text">Hancurkan kristal inti musuh untuk memenangkan pertempuran.</span></div>
+      </div>
+      <div class="menu-art">
+        <div class="art-ring ring-a"></div>
+        <div class="art-ring ring-b"></div>
+        <div class="art-glow"></div>
+        <img src="assets/bg-menu.webp" alt="Ilustrasi Nusantara Arena" draggable="false" />
+        <div class="art-fade"></div>
+        <div class="art-badges">
+          <span class="art-badge"><svg><use href="#i-crown"/></svg> 9 Pahlawan Legenda</span>
+          <span class="art-badge"><svg><use href="#i-hex"/></svg> 23 Item Sakti</span>
+        </div>
+      </div>
+    </div>
+    <footer class="menu-footer">
+      <span>✦ Legenda bangkit di tanah Nusantara</span>
+      <span class="menu-version">v1.0 · dibuat untuk PC</span>
+    </footer>
+  </section>
+
+  <!-- ================= HERO SELECT ================= -->
+  <section class="screen screen-select" id="screen-select">
+    <div class="bg-layer alt"></div>
+    <div class="select-top">
+      <button class="ghost-btn" id="btn-select-back"><svg><use href="#i-back"/></svg><span>Kembali</span></button>
+      <div class="select-title"><span>PILIH</span> PAHLAWANMU</div>
+      <div class="select-diff">
+        <span>Kesulitan</span>
+        <div class="mini-chips" id="select-diff-chips">
+          <button data-diff="easy">Mudah</button>
+          <button data-diff="normal" class="is-active">Normal</button>
+          <button data-diff="hard">Sulit</button>
+        </div>
+      </div>
+    </div>
+    <div class="select-layout">
+      <aside class="hero-roster">
+        <div class="roster-head"><span>ROSTER</span><small>9 pahlawan</small></div>
+        <div class="hero-grid" id="hero-grid"></div>
+        <div class="roster-foot">
+          <svg><use href="#i-info"/></svg>
+          <span>Setiap pahlawan memiliki pasif unik dan empat kemampuan.</span>
+        </div>
+      </aside>
+      <div class="showroom" id="showroom">
+        <div class="showroom-rays"></div>
+        <div class="showroom-ring"></div>
+        <div class="showroom-glow" id="showroom-glow"></div>
+        <div class="showroom-img-wrap" id="showroom-img-wrap">
+          <img id="showroom-img" src="assets/heroes/garuda.webp" alt="" draggable="false" />
+        </div>
+        <div class="showroom-plate">
+          <div class="showroom-role" id="showroom-role">Marksman</div>
+          <h2 id="showroom-name">Garuda</h2>
+          <div class="showroom-title" id="showroom-title">Sayap Badai</div>
+          <p class="showroom-lore" id="showroom-lore"></p>
+          <div class="showroom-passive" id="showroom-passive"></div>
+        </div>
+        <div class="showroom-stats" id="showroom-stats"></div>
+      </div>
+      <aside class="hero-detail">
+        <div class="detail-block">
+          <div class="detail-head"><span>KEMAMPUAN</span><small>1 · 2 · 3 · 4</small></div>
+          <div class="ability-list" id="hero-kit"></div>
+        </div>
+        <div class="detail-block">
+          <div class="detail-head"><span>JALUR AWAL</span><small id="lane-recommend"></small></div>
+          <div class="lane-picker" id="lane-picker">
+            <button data-lane="top"><svg><use href="#i-top"/></svg><span>Atas</span></button>
+            <button data-lane="mid"><svg><use href="#i-mid"/></svg><span>Tengah</span></button>
+            <button data-lane="bot"><svg><use href="#i-bot"/></svg><span>Bawah</span></button>
+            <button data-lane="jungle"><svg><use href="#i-jungle"/></svg><span>Hutan</span></button>
+          </div>
+        </div>
+        <div class="select-cta">
+          <div class="team-preview" id="team-preview"></div>
+          <button class="primary-btn" id="btn-start-match"><svg><use href="#i-swords"/></svg><span>MASUK ARENA</span></button>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= LOADING ================= -->
+  <section class="screen screen-loading" id="screen-loading">
+    <div class="bg-layer dark"></div>
+    <div class="loading-core">
+      <div class="loading-sigil"><span>✦</span></div>
+      <div class="loading-title">MEMBANGUN ARENA</div>
+      <div class="loading-bar"><span id="loading-fill"></span></div>
+      <div class="loading-tip" id="loading-tip">Hancurkan kristal inti musuh untuk memenangkan pertempuran.</div>
+      <div class="loading-vs" id="loading-vs"></div>
+    </div>
+  </section>
+
+  <!-- ================= GAME ================= -->
+  <section class="screen screen-game" id="screen-game">
+    <canvas id="game-canvas"></canvas>
+    <div class="game-vignette"></div>
+    <div class="game-fx" aria-hidden="true"></div>
+
+    <div class="hud" id="hud">
+      <div class="hud-top">
+        <div class="score-pill blue"><span class="team-mark">✦</span><b id="score-blue">0</b><small>BIRU</small></div>
+        <div class="match-clock">
+          <div class="clock-time" id="match-time">00:00</div>
+          <div class="clock-sub" id="match-phase">PERSIAPAN</div>
+        </div>
+        <div class="score-pill red"><small>MERAH</small><b id="score-red">0</b><span class="team-mark">✦</span></div>
+        <div class="top-actions">
+          <button class="icon-btn" id="btn-help" title="Bantuan (F1)"><svg><use href="#i-info"/></svg></button>
+          <button class="icon-btn" id="btn-pause" title="Jeda (ESC)"><svg><use href="#i-pause"/></svg></button>
+        </div>
+      </div>
+
+      <div class="item-panel">
+        <div class="gold-row"><svg><use href="#i-coin"/></svg><b id="gold-amount">550</b><span>emas</span><button id="btn-shop" title="Toko (P)"><svg><use href="#i-book"/></svg> Toko</button></div>
+        <div class="item-slots" id="item-slots"></div>
+      </div>
+
+      <div class="killfeed" id="killfeed"></div>
+
+      <div class="announce-layer" id="announce-layer"></div>
+      <div class="toast-layer" id="toast-layer"></div>
+
+      <div class="minimap-wrap">
+        <div class="minimap-frame">
+          <canvas id="minimap" width="220" height="220"></canvas>
+          <div class="minimap-corner tl"></div><div class="minimap-corner tr"></div><div class="minimap-corner bl"></div><div class="minimap-corner br"></div>
+        </div>
+        <div class="minimap-label"><span id="minimap-lane">JALUR TENGAH</span><span id="minimap-fps"></span></div>
+      </div>
+
+      <div class="hero-hud">
+        <div class="hero-portrait" id="hero-portrait"><img src="assets/heroes/garuda.webp" alt="" /><span class="portrait-level" id="hero-level">1</span></div>
+        <div class="hero-bars">
+          <div class="hero-name-row"><span id="hero-name-hud">Garuda</span><small id="hero-role-hud">Marksman</small></div>
+          <div class="bar hp"><span id="bar-hp"></span><i id="bar-shield"></i><em id="hp-text">600 / 600</em></div>
+          <div class="bar mp"><span id="bar-mp"></span><em id="mp-text">340 / 340</em></div>
+          <div class="bar xp"><span id="bar-xp"></span><em id="xp-text">Lv. 1</em></div>
+          <div class="hero-quickstats" id="hero-quickstats"></div>
+        </div>
+      </div>
+
+      <div class="combat-panel">
+        <div class="skill-row" id="skill-row"></div>
+        <div class="utility-row">
+          <button class="util-btn" id="btn-recall" title="Kembali ke markas (B)"><svg><use href="#i-home"/></svg><span>B</span><small>Pulang</small></button>
+          <button class="util-btn regen" id="btn-regen" title="Regen: pulihkan HP & MP (R)"><svg><use href="#i-heal"/></svg><span>R</span><small>Regen</small><em class="util-cd" id="regen-cd"></em></button>
+          <button class="util-btn" id="btn-stop" title="Berhenti (X)"><svg><use href="#i-close"/></svg><span>X</span><small>Berhenti</small></button>
+          <button class="util-btn attack" id="btn-attack" title="Serang (Spasi)"><svg><use href="#i-swords"/></svg><span>SPASI</span><small>Serang</small></button>
+        </div>
+      </div>
+
+      <div class="death-overlay" id="death-overlay">
+        <div class="death-title">KAMU GUGUR</div>
+        <div class="death-sub">Kembali dalam <b id="respawn-timer">5</b> detik</div>
+      </div>
+
+      <div class="recall-ring" id="recall-ring"><span></span><b>KEMBALI</b></div>
+      <div class="regen-ring" id="regen-ring"><span></span><b>REGEN</b></div>
+
+      <div class="fps-tag" id="fps-tag"></div>
+    </div>
+  </section>
+
+  <!-- ================= RESULTS ================= -->
+  <section class="screen screen-results" id="screen-results">
+    <div class="bg-layer dark"></div>
+    <div class="results-burst" id="results-burst"></div>
+    <div class="results-wrap">
+      <div class="result-kicker" id="result-kicker">PERTEMPURAN SELESAI</div>
+      <h2 class="result-verdict" id="result-verdict">KEMENANGAN</h2>
+      <div class="result-sub" id="result-sub"></div>
+      <div class="result-mvp" id="result-mvp"></div>
+      <div class="result-table-wrap">
+        <table class="result-table" id="result-table"></table>
+      </div>
+      <div class="results-actions">
+        <button class="primary-btn" id="btn-rematch"><svg><use href="#i-swords"/></svg><span>MAIN LAGI</span></button>
+        <button class="ghost-btn large" id="btn-results-menu"><svg><use href="#i-home"/></svg><span>MENU UTAMA</span></button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= OVERLAYS ================= -->
+<div class="modal-backdrop" id="overlay-shop">
+  <div class="modal shop-modal">
+    <div class="modal-head">
+      <div class="modal-title"><svg><use href="#i-book"/></svg> TOKO PERLENGKAPAN <small>Beli kapan saja · Jual kembali 60%</small></div>
+      <div class="shop-gold"><svg><use href="#i-coin"/></svg><b id="shop-gold">550</b></div>
+      <button class="icon-btn modal-close" data-close="shop"><svg><use href="#i-close"/></svg></button>
+    </div>
+    <div class="shop-tabs" id="shop-tabs">
+      <button class="is-active" data-cat="all">Semua</button>
+      <button data-cat="attack">Serangan</button>
+      <button data-cat="magic">Sihir</button>
+      <button data-cat="defense">Pertahanan</button>
+      <button data-cat="speed">Kecepatan</button>
+    </div>
+    <div class="shop-body">
+      <div class="shop-grid" id="shop-grid"></div>
+      <aside class="shop-side">
+        <div class="shop-side-head">ITEM KAMU <small id="shop-slot-count">0 / 6</small></div>
+        <div class="shop-owned" id="shop-owned"></div>
+        <div class="shop-note"><svg><use href="#i-info"/></svg><span>Setiap item unik hanya bisa dimiliki sekali. Susun build sesuai peran hero-mu.</span></div>
+      </aside>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="overlay-scoreboard">
+  <div class="modal score-modal">
+    <div class="modal-head">
+      <div class="modal-title"><svg><use href="#i-trophy"/></svg> PAPAN SKOR</div>
+      <div class="score-mini" id="score-mini"></div>
+      <button class="icon-btn modal-close" data-close="scoreboard"><svg><use href="#i-close"/></svg></button>
+    </div>
+    <div class="scoreboard" id="scoreboard"></div>
+    <div class="score-foot">Tahan <b>TAB</b> untuk melihat papan skor</div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="overlay-help">
+  <div class="modal help-modal">
+    <div class="modal-head">
+      <div class="modal-title"><svg><use href="#i-info"/></svg> CARA BERMAIN</div>
+      <button class="icon-btn modal-close" data-close="help"><svg><use href="#i-close"/></svg></button>
+    </div>
+    <div class="help-body">
+      <div class="help-col">
+        <h4>KONTROL</h4>
+        <div class="key-list">
+          <div><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><span>Bergerak</span></div>
+          <div><kbd>Klik Kanan</kbd><span>Bergerak / serang target (alternatif)</span></div>
+          <div><kbd>Klik Kiri</kbd><span>Serangan dasar ke target</span></div>
+          <div><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd><span>Skill · 4 = ultimate · arah ikut WASD terakhir</span></div>
+          <div><kbd>Shift</kbd>+<kbd>1/2/3/4</kbd><span>Naikkan level skill</span></div>
+          <div><kbd>Spasi</kbd><span>Serang musuh terdekat</span></div>
+          <div><kbd>B</kbd><span>Kembali ke markas</span></div>
+          <div><kbd>R</kbd><span>Regen: pulihkan HP &amp; MP (batal bila bergerak/kena serangan)</span></div>
+          <div><kbd>P</kbd><span>Buka toko</span></div>
+          <div><kbd>X</kbd><span>Berhenti</span></div>
+          <div><kbd>TAB</kbd><span>Papan skor</span></div>
+          <div><kbd>ESC</kbd><span>Jeda / tutup panel</span></div>
+          <div><kbd>F1</kbd><span>Bantuan ini</span></div>
+          <div><kbd>Scroll</kbd><span>Perbesar / perkecil kamera</span></div>
+        </div>
+      </div>
+      <div class="help-col">
+        <h4>TIPS PERTEMPURAN</h4>
+        <ul class="tips-list">
+          <li>Kalahkan minion untuk mendapatkan emas dan pengalaman. Sentuhan terakhir memberi bonus emas.</li>
+          <li>Menara dalam memiliki perisai sampai menara luar di jalur itu hancur.</li>
+          <li>Ambil monster hutan untuk memperoleh Berkah Rimba (+18% kerusakan).</li>
+          <li>Setelah 15 menit, semua pahlawan mendapat +20% kerusakan. Setelah 20 menit, Badai Nusantara menghukum tim yang tertinggal.</li>
+          <li>Hancurkan Kristal Inti musuh untuk menang — tetapi kristal kebal sampai menara dalam dihancurkan.</li>
+          <li>Jangan bertarung di bawah menara musuh tanpa bantuan minion.</li>
+        </ul>
+        <div class="help-legend">
+          <span><i class="dot blue"></i> Tim Biru</span>
+          <span><i class="dot red"></i> Tim Merah</span>
+          <span><i class="dot gold"></i> Kamu</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="overlay-pause">
+  <div class="modal pause-modal">
+    <div class="modal-head">
+      <div class="modal-title"><svg><use href="#i-pause"/></svg> JEDA PERTEMPURAN</div>
+      <button class="icon-btn modal-close" data-close="pause"><svg><use href="#i-close"/></svg></button>
+    </div>
+    <div class="pause-body">
+      <div class="pause-actions">
+        <button class="primary-btn" id="btn-resume"><svg><use href="#i-play"/></svg><span>LANJUTKAN</span></button>
+        <button class="ghost-btn large" id="btn-pause-help"><svg><use href="#i-info"/></svg><span>CARA BERMAIN</span></button>
+        <button class="ghost-btn large danger" id="btn-quit"><svg><use href="#i-home"/></svg><span>KELUAR KE MENU</span></button>
+      </div>
+      <div class="pause-settings">
+        <h4>PENGATURAN</h4>
+        <label class="setting-row"><span>Efek Suara</span><input type="range" id="set-volume" min="0" max="100" value="70" /><b id="set-volume-val">70</b></label>
+        <label class="setting-row"><span>Musik Ambien</span><input type="range" id="set-music" min="0" max="100" value="35" /><b id="set-music-val">35</b></label>
+        <label class="setting-row toggle-row"><span>Grafik Tinggi</span><input type="checkbox" id="set-quality" checked /><i class="switch"></i></label>
+        <div class="setting-hint">Matikan Grafik Tinggi jika pertempuran terasa lambat.</div>
+        <label class="setting-row toggle-row"><span>Tampilkan FPS</span><input type="checkbox" id="set-fps" /><i class="switch"></i></label>
+        <label class="setting-row toggle-row"><span>Getar Kamera</span><input type="checkbox" id="set-shake" checked /><i class="switch"></i></label>
+        <button class="ghost-btn small" id="btn-pause-settings-reset">Kembalikan Default</button>
+      </div>
+    </div>
+    <div class="pause-foot">Pertempuran dijeda — tekan <b>ESC</b> untuk melanjutkan.</div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="overlay-menu-settings">
+  <div class="modal pause-modal">
+    <div class="modal-head">
+      <div class="modal-title"><svg><use href="#i-pause"/></svg> PENGATURAN</div>
+      <button class="icon-btn modal-close" data-close="menu-settings"><svg><use href="#i-close"/></svg></button>
+    </div>
+    <div class="pause-settings wide">
+      <h4>AUDIO &amp; TAMPILAN</h4>
+      <label class="setting-row"><span>Efek Suara</span><input type="range" id="set-volume2" min="0" max="100" value="70" /><b id="set-volume2-val">70</b></label>
+      <label class="setting-row"><span>Musik Ambien</span><input type="range" id="set-music2" min="0" max="100" value="35" /><b id="set-music2-val">35</b></label>
+      <label class="setting-row toggle-row"><span>Grafik Tinggi</span><input type="checkbox" id="set-quality2" checked /><i class="switch"></i></label>
+      <div class="setting-hint">Matikan Grafik Tinggi jika pertempuran terasa lambat.</div>
+      <label class="setting-row toggle-row"><span>Tampilkan FPS</span><input type="checkbox" id="set-fps2" /><i class="switch"></i></label>
+      <label class="setting-row toggle-row"><span>Getar Kamera</span><input type="checkbox" id="set-shake2" checked /><i class="switch"></i></label>
+    </div>
+    <div class="pause-foot">Pengaturan tersimpan otomatis di perangkat ini.</div>
+  </div>
+</div>
+
+<div class="rotate-warning"><svg><use href="#i-info"/></svg><span>Nusantara Arena dirancang untuk layar lebar. Putar perangkat atau perbesar jendela.</span></div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
